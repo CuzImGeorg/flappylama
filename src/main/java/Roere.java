@@ -37,7 +37,7 @@ public class Roere extends aMovingObject {
     public void draw(Graphics g) {
         //g.drawImage(img, posX, posY, null);
         g.drawImage(img, x, y, width, height, null);
-        g.drawImage(img2, x, y+100, width, height, null);
+        g.drawImage(img2, x, y+height+100, width, height, null);
 
     }
 
