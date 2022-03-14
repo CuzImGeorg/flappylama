@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -14,12 +16,28 @@ public class MainPanel extends JPanel {
 
         drawingBalken = new ArrayList<>();
         r = new Roere();
-        for (int i = 0; i <10; i++) {
+        for (int i = 0; i <11; i++) {
             drawingBalken.add(new Balken(i*40));
         }
         drawingBalken.forEach(aMovingObject::start);
         r.start();
         update();
+        addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 
     public void update() {
