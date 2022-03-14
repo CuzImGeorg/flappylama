@@ -18,13 +18,13 @@ public class Roere extends aMovingObject {
      setY(t);
 
         try {
-            img = ImageIO.read(new File("src/main/java/rohre.png"));
+            img = ImageIO.read(new File("src/main/java/rohrdown.png"));
         } catch (IOException ex) {
 
         }
 
         try {
-            img2 = ImageIO.read(new File("src/main/java/rohre.png"));
+            img2 = ImageIO.read(new File("src/main/java/rohrup.png"));
         } catch (IOException ex) {
 
         }
