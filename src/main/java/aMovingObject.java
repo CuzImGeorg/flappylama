@@ -8,13 +8,7 @@ public abstract class aMovingObject {
     private boolean run = false;
 
 
-    public aMovingObject(int x,int y, int width, int height){
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        moveLeft();
-    }
+
 
     public void start() {
         run = true;
