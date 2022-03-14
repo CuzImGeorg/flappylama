@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -32,6 +33,8 @@ public abstract class aMovingObject {
             }
         },0 , 10, TimeUnit.MILLISECONDS);
     }
+
+    public abstract void draw(Graphics g);
 
 
 
