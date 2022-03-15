@@ -10,7 +10,7 @@ public class Logo extends aMovingObject{
     public Logo(){
         super(50,200,80,80);
         try {
-            img = ImageIO.read(new File("src/main/java/logo.png"));
+            img = ImageIO.read(new File("src/main/java/logo2.png"));
         } catch (IOException ex) {
 
         }
