@@ -3,7 +3,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class score extends animal{
-    private int score;
+    private int score = 1;
     boolean c = false;
 
 
