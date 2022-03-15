@@ -52,5 +52,29 @@ public class animal {
 
         }
     }
+
+    public int getAx() {
+        return ax;
+    }
+
+    public int getAy() {
+        return ay;
+    }
+
+    public int getSpeedy() {
+        return speedy;
+    }
+
+    public int getAheight() {
+        return aheight;
+    }
+
+    public int getAwidth() {
+        return awidth;
+    }
+
+    public BufferedImage getImg() {
+        return img;
+    }
 }
 

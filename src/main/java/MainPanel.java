@@ -42,7 +42,17 @@ public class MainPanel extends JPanel implements KeyListener{
         ses.scheduleAtFixedRate(()-> {
             drawingRoere.add(new Roere());
             drawingRoere.forEach(run ? aMovingObject::start : null);
+            drawingRoere.removeIf(r -> r.getX() < 10);
         },3,3,TimeUnit.SECONDS);
+    }
+
+    public void detectCollision() {
+        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
+        ses.scheduleAtFixedRate(()-> {
+            if(lama.getAx() > drawingRoere.get(0).getX() && lama.getAx() < drawingRoere.get(0).getX() + getWidth() ) {
+
+            }
+        },1,1, TimeUnit.MILLISECONDS);
     }
 
     public void update() {
