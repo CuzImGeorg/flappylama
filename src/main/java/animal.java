@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class animal {
 
-    private int ax = 200, ay = 150, speedy = 15, aheight = 50, awidth = 50;
+    private int ax = 200, ay = 150, speedy = 15, aheight = 75, awidth = 75;
     private BufferedImage img;
 
     public animal(){
@@ -26,7 +26,7 @@ public class animal {
     public void moveAnimal() {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
-            ay = ay +2;
+            ay = ay +3;
 
         },0 , 20, TimeUnit.MILLISECONDS);
 
@@ -37,7 +37,7 @@ public class animal {
     }
 
     public void moveUp(){
-        ay=ay-30;
+        ay=ay-53;
     }
 
 
