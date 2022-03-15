@@ -62,7 +62,56 @@ public class animal {
         return dead;
     }
 
-    
+    public int getAx() {
+        return ax;
+    }
 
+    public void setAx(int ax) {
+        this.ax = ax;
+    }
+
+    public int getAy() {
+        return ay;
+    }
+
+    public void setAy(int ay) {
+        this.ay = ay;
+    }
+
+    public int getSpeedy() {
+        return speedy;
+    }
+
+    public void setSpeedy(int speedy) {
+        this.speedy = speedy;
+    }
+
+    public int getAheight() {
+        return aheight;
+    }
+
+    public void setAheight(int aheight) {
+        this.aheight = aheight;
+    }
+
+    public int getAwidth() {
+        return awidth;
+    }
+
+    public void setAwidth(int awidth) {
+        this.awidth = awidth;
+    }
+
+    public BufferedImage getImg() {
+        return img;
+    }
+
+    public void setImg(BufferedImage img) {
+        this.img = img;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
 }
 
