@@ -8,7 +8,7 @@ public class Logo extends aMovingObject{
     Image img;
 
     public Logo(){
-        super(0,50,80,80);
+        super(020,50,80,80);
 
         try {
             img = ImageIO.read(new File("src/main/java/rohrdown.png"));
