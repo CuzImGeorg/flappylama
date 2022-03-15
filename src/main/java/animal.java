@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class animal {
 
-    private int ax = 200, ay = 150, speedy = 15, aheight = 50, awidth = 50;
+    private int ax = 200, ay = 150, speedy = 15, aheight = 75, awidth = 75;
     private BufferedImage img;
 
     public animal(){

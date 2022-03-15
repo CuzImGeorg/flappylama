@@ -9,24 +9,40 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class MainPanel extends JPanel implements KeyListener{
+    private boolean run = false;
     private animal lama;
     private ArrayList<Balken> drawingBalken;
-    private Roere r;
+    private ArrayList<Roere> drawingRoere;
+
+    private Logo logo;
     public MainPanel() {
         setSize(400,600);
         lama = new animal();
-        lama.start();
+        logo = new Logo();
         drawingBalken = new ArrayList<>();
-        r = new Roere();
+        drawingRoere = new ArrayList<>();
+
         for (int i = 0; i <11; i++) {
             drawingBalken.add(new Balken(i*40));
         }
 
-        drawingBalken.forEach(aMovingObject::start);
-        r.start();
+
         addKeyListener(this);
         update();
 
+    }
+
+    public void start() {
+        drawingBalken.forEach(aMovingObject::start);
+
+        lama.start();
+        logo.start();
+
+        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
+        ses.scheduleAtFixedRate(()-> {
+            drawingRoere.add(new Roere());
+            drawingRoere.forEach(run ? aMovingObject::start : null);
+        },3,3,TimeUnit.SECONDS);
     }
 
     public void update() {
@@ -38,14 +54,19 @@ public class MainPanel extends JPanel implements KeyListener{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawingBalken.forEach((b) -> b.draw(g));
-        r.draw(g);
+        drawingRoere.forEach((c) -> c.draw(g));
         lama.draw(g);
+        logo.draw(g);
 
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
         lama.keyPressed(e);
+        if(!run) {
+            run = true;
+            start();
+        }
     }
 
     @Override
