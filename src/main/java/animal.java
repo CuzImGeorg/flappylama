@@ -12,7 +12,7 @@ public class animal {
 
     private int ax = 200, ay = 150, speedy = 15, aheight = 75, awidth = 75;
     private BufferedImage img;
-
+    private boolean dead = false;
     public animal(){
 
         try {
@@ -27,7 +27,10 @@ public class animal {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
             ay = ay +3;
-
+            if(ay >= 550 || ay == 0){
+                dead = true;
+                ses.shutdown();
+            }
         },0 , 20, TimeUnit.MILLISECONDS);
 
     }
@@ -37,7 +40,9 @@ public class animal {
     }
 
     public void moveUp(){
-        ay=ay-53;
+        if(dead = false) {
+            ay = ay - 53;
+        }
     }
 
 
@@ -52,5 +57,12 @@ public class animal {
 
         }
     }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    
+
 }
 
