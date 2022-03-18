@@ -54,10 +54,7 @@ public class MainPanel extends JPanel implements KeyListener{
 
             for(Roere r : drawingRoere) {
                 if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
-                    System.out.println(r.getY()+400);
-                    System.out.println(lama.getAy());
                     if(lama.getAy() < r.getY()+350 || lama.getAy() > r.getY() +450){
-                        // TODO fix
                         lama.setDead(true);
                     }
 
