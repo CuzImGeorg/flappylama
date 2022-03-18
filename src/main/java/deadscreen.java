@@ -20,7 +20,7 @@ public class deadscreen  {
             e.getStackTrace();
         }
         JButton restart = new JButton();
-        restart.setBounds(180, 500, 100, 80);
+        restart.setBounds(180, 450, 80, 30);
         restart.setText("Restart");
         restart.setBackground(Color.WHITE);
         restart.addActionListener((l)-> {
@@ -29,7 +29,7 @@ public class deadscreen  {
         start.getMf().getP().add(restart);
 
         JButton quit = new JButton();
-        quit.setBounds(180, 400, 100, 80);
+        quit.setBounds(180, 490, 80, 30);
         quit.setText("Quit");
         quit.setBackground(Color.WHITE);
         quit.addActionListener((l)-> {
@@ -38,14 +38,14 @@ public class deadscreen  {
         start.getMf().getP().add(quit);
 
         JLabel scorejl = new JLabel("Score: "+score);
-        scorejl.setFont(new Font("Verdana",1,100));
-        scorejl.setBounds(180,300,100,80);
+        scorejl.setFont(new Font("Verdana",1,20));
+        scorejl.setBounds(180,200,300,80);
         start.getMf().getP().add(scorejl);
 
 
         JLabel Highscorejl = new JLabel("Highscore: "+highscore);
-        Highscorejl.setFont(new Font("Verdana",1,100));
-        Highscorejl.setBounds(180,200,100,80);
+        Highscorejl.setFont(new Font("Verdana",1,20));
+        Highscorejl.setBounds(150,240,300,80);
         start.getMf().getP().add(Highscorejl);
     }
 
