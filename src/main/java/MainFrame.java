@@ -1,9 +1,9 @@
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
-
+    MainPanel p;
     public MainFrame() {
-        MainPanel p = new MainPanel();
+         p = new MainPanel();
         setSize(400,650);
         setDefaultCloseOperation(3);
         setLayout(null);
@@ -11,6 +11,11 @@ public class MainFrame extends JFrame {
         addKeyListener(p);
 
         setVisible(true);
+    }
+
+    public void restart() {
+        p = new MainPanel();
+        setContentPane(p);
     }
 
 }
