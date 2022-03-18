@@ -4,4 +4,7 @@ public class start  {
        mf = new MainFrame();
     }
 
+    public static MainFrame getMf() {
+        return mf;
+    }
 }

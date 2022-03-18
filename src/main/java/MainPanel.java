@@ -73,6 +73,8 @@ public class MainPanel extends JPanel implements KeyListener{
         ses.scheduleAtFixedRate(()-> updateUI(), 1,5, TimeUnit.MILLISECONDS);
     }
 
+
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -90,6 +92,9 @@ public class MainPanel extends JPanel implements KeyListener{
         drawingRoere.forEach((c) -> c.draw(g));
         lama.draw(g);
         logo.draw(g);
+        g.setColor(new Color(245,222,179));
+        g.fillRect(0,570,400,50);
+        g.setColor(Color.black);
 
     }
 
