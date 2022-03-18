@@ -40,17 +40,28 @@ public class MainPanel extends JPanel implements KeyListener{
 
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
+            if(lama.isDead()) ses.shutdown();
             drawingRoere.add(new Roere());
             drawingRoere.forEach(run ? aMovingObject::start : null);
             drawingRoere.removeIf(r -> r.getX() < 10);
         },3,3,TimeUnit.SECONDS);
+        detectCollision();
     }
 
     public void detectCollision() {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
-            if(lama.getAx() > drawingRoere.get(0).getX() && lama.getAx() < drawingRoere.get(0).getX() + getWidth() ) {
 
+            for(Roere r : drawingRoere) {
+                if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
+                    System.out.println(r.getY());
+                    System.out.println(lama.getAy());
+                    if(lama.getAy() < r.getY()+350 || lama.getAy() > r.getY() + getHeight()+600) // TODO fix
+
+
+                    lama.setDead(true);
+
+                }
             }
         },1,1, TimeUnit.MILLISECONDS);
     }
@@ -63,6 +74,11 @@ public class MainPanel extends JPanel implements KeyListener{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        if(lama.isDead()) {
+            drawingRoere.forEach(aMovingObject::stop);
+            drawingBalken.forEach(aMovingObject::stop);
+
+        }
         drawingBalken.forEach((b) -> b.draw(g));
         drawingRoere.forEach((c) -> c.draw(g));
         lama.draw(g);

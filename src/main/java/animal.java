@@ -27,7 +27,8 @@ public class animal {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
             ay = ay +3;
-            if(ay >= 550 || ay == 0){
+            if(dead) ses.shutdown();
+            if(ay >= 550 || ay < -5){
                 dead = true;
                 ses.shutdown();
             }
@@ -40,7 +41,7 @@ public class animal {
     }
 
     public void moveUp(){
-        if(dead = false) {
+        if(!dead) {
             ay = ay - 53;
         }
     }
