@@ -29,7 +29,7 @@ public class deadscreen  {
         start.getMf().getP().add(restart);
 
         JButton quit = new JButton();
-        quit.setBounds(180, 550, 100, 80);
+        quit.setBounds(180, 400, 100, 80);
         quit.setText("Quit");
         quit.setBackground(Color.WHITE);
         quit.addActionListener((l)-> {
@@ -39,13 +39,13 @@ public class deadscreen  {
 
         JLabel scorejl = new JLabel("Score: "+score);
         scorejl.setFont(new Font("Verdana",1,100));
-        scorejl.setBounds(180,400,100,80);
+        scorejl.setBounds(180,300,100,80);
         start.getMf().getP().add(scorejl);
 
 
         JLabel Highscorejl = new JLabel("Highscore: "+highscore);
         Highscorejl.setFont(new Font("Verdana",1,100));
-        Highscorejl.setBounds(180,450,100,80);
+        Highscorejl.setBounds(180,200,100,80);
         start.getMf().getP().add(Highscorejl);
     }
 
