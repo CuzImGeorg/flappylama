@@ -9,16 +9,16 @@ public class score extends animal{
 //if dead add stop no count
     public void scoreCount() {
 
-        if(c = true) {
+        if(c) {
             ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
             ses.scheduleAtFixedRate(() -> {
-                if (dead = true) {
+                if (isDead()) {
                     ses.shutdown();
                 } else score++;
                 System.out.printf(String.valueOf(score));
             }, 0, 3000, TimeUnit.MILLISECONDS);
         }
-        else if(c = false){
+        else if(c){
             ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
             ses.scheduleAtFixedRate(() -> {
                 c = true;
@@ -31,5 +31,7 @@ public class score extends animal{
         this.score = score;
     }
 
-
+    public int getScore() {
+        return score;
+    }
 }
