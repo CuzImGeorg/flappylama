@@ -6,7 +6,7 @@ public class score extends animal{
     private int score = 1;
     boolean c = false;
 
-
+//if dead add stop no count
     public void scoreCount() {
 
         if(c = true) {

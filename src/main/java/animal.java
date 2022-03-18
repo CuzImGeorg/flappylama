@@ -12,7 +12,7 @@ public class animal {
 
     private int ax = 200, ay = 150, speedy = 15, aheight = 75, awidth = 75;
     private BufferedImage img;
-    private boolean dead = false;
+    public boolean dead = false;
     public animal(){
 
         try {
