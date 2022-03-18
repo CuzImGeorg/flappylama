@@ -1,16 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileReader;
 
-public class deadscreen extends JPanel  {
+public class deadscreen  {
 
     private int score;
     private int highscore;
 
     public deadscreen(int score) {
-        setSize(400, 600);
         this.score = score;
 
         char[] array = new char[100];
@@ -29,6 +26,7 @@ public class deadscreen extends JPanel  {
         restart.addActionListener((l)-> {
             start.getMf().restart();
         });
+        start.getMf().getP().add(restart);
 
         JButton quit = new JButton();
         quit.setBounds(100, 550, 60, 30);
@@ -37,7 +35,7 @@ public class deadscreen extends JPanel  {
         quit.addActionListener((l)-> {
             System.exit(0);
         });
-
+        start.getMf().getP().add(quit);
     }
 
 }
