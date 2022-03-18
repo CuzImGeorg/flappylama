@@ -17,6 +17,7 @@ public class MainPanel extends JPanel implements KeyListener{
     private ArrayList<Balken> drawingBalken;
     private ArrayList<Roere> drawingRoere;
     private score score;
+    private deadscreen dc;
     private Logo logo;
     public MainPanel() {
         setSize(400,600);
@@ -37,7 +38,8 @@ public class MainPanel extends JPanel implements KeyListener{
 
     public void start() {
         drawingBalken.forEach(aMovingObject::start);
-
+        score = new score();
+        score.scoreCount();
         lama.start();
         logo.start();
 
@@ -59,6 +61,7 @@ public class MainPanel extends JPanel implements KeyListener{
                 if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
                     if(lama.getAy() < r.getY()+350 || lama.getAy() > r.getY() +450){
                         lama.setDead(true);
+
                     }
 
 
@@ -115,5 +118,13 @@ public class MainPanel extends JPanel implements KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    public animal getLama() {
+        return lama;
+    }
+
+    public score getScore() {
+        return score;
     }
 }
