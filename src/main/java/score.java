@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -23,5 +24,9 @@ public class score {
 
     public int getScore() {
         return score;
+    }
+    public void draw(Graphics g){
+        g.drawString(String.valueOf(score), 75,75);
+
     }
 }
