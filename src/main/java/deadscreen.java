@@ -37,13 +37,13 @@ public class deadscreen  {
         });
         start.getMf().getP().add(quit);
 
-        JLabel scorejl = new JLabel("Score /n"+score);
+        JLabel scorejl = new JLabel("Score: "+score);
         scorejl.setFont(new Font("Verdana",1,100));
         scorejl.setBounds(180,400,60,30);
         start.getMf().getP().add(scorejl);
 
 
-        JLabel Highscorejl = new JLabel("Highscore /n"+highscore);
+        JLabel Highscorejl = new JLabel("Highscore: "+highscore);
         Highscorejl.setFont(new Font("Verdana",1,100));
         Highscorejl.setBounds(180,450,60,30);
         start.getMf().getP().add(Highscorejl);
