@@ -33,7 +33,20 @@ public class MainPanel extends JPanel implements KeyListener{
 
 
         addKeyListener(this);
+        onDeath();
         update();
+
+    }
+    
+    public void onDeath(){
+        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
+        ses.scheduleAtFixedRate(()-> {
+            if (lama.isDead()) {
+                dc = new deadscreen(sc.getScore());
+                ses.shutdown();
+            }
+
+        },10,10, TimeUnit.MILLISECONDS);
 
     }
 
@@ -62,7 +75,7 @@ public class MainPanel extends JPanel implements KeyListener{
                 if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
                     if(lama.getAy() < r.getY()+350 || lama.getAy() > r.getY() +450){
                         lama.setDead(true);
-                        dc = new deadscreen(sc.getScore());
+                        
                         ses.shutdown();
                     }
 
