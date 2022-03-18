@@ -18,4 +18,7 @@ public class MainFrame extends JFrame {
         setContentPane(p);
     }
 
+    public MainPanel getP() {
+        return p;
+    }
 }
