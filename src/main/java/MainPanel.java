@@ -16,7 +16,7 @@ public class MainPanel extends JPanel implements KeyListener{
     private animal lama;
     private ArrayList<Balken> drawingBalken;
     private ArrayList<Roere> drawingRoere;
-
+    private score score;
     private Logo logo;
     public MainPanel() {
         setSize(400,600);
