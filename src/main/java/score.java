@@ -31,5 +31,7 @@ public class score extends animal{
         this.score = score;
     }
 
-
+    public int getScore() {
+        return score;
+    }
 }
