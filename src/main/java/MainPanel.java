@@ -1,7 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -67,12 +70,17 @@ public class MainPanel extends JPanel implements KeyListener{
 
     public void update() {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
-        ses.scheduleAtFixedRate(()-> updateUI(), 1,1, TimeUnit.MILLISECONDS);
+        ses.scheduleAtFixedRate(()-> updateUI(), 1,5, TimeUnit.MILLISECONDS);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        try {
+            g.drawImage(ImageIO.read(new File("src/main/java/hg.png")), 0,0 ,400,570,null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if(lama.isDead()) {
             drawingRoere.forEach(aMovingObject::stop);
             drawingBalken.forEach(aMovingObject::stop);
