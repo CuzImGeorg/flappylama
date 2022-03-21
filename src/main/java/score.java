@@ -5,10 +5,15 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class score {
-    private int score = 0;
-
+    private int score=0;
+    JLabel scorejl;
 //if dead add stop no count
     public void scoreCount() {
+
+        scorejl = new JLabel(String.valueOf(score));
+        scorejl.setFont(new Font("Verdana",1,20));
+        scorejl.setBounds(100,100,300,80);
+        start.getMf().getP().add(scorejl);
 
             ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
             ses.scheduleAtFixedRate(() -> {
@@ -27,12 +32,9 @@ public class score {
         return score;
     }
     public void draw(Graphics g){
-        g.drawString(String.valueOf(score), 75,75);
 
-        JLabel scorejl = new JLabel("Score: "+score);
-        scorejl.setFont(new Font("Verdana",1,25));
-        scorejl.setBounds(100,100,300,80);
-        start.getMf().getP().add(scorejl);
+        scorejl.setText(String.valueOf(score));
+
 
     }
 
