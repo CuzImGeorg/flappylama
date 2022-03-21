@@ -10,7 +10,7 @@ public class Highscore {
         char[] array = new char[100];
         try {
             // Creates a reader using the FileReader
-            FileReader output = new FileReader("score.txt");
+            FileReader output = new FileReader("src/main/java/score.txt");
 
             // Reads characters
             output.read(array);
@@ -18,9 +18,7 @@ public class Highscore {
 
             int i = Integer.parseInt(new String(array));
             if(score > i){
-                File file = new File("score.txt");
-                file.delete();
-                FileWriter input = new FileWriter("score.txt");
+                FileWriter input = new FileWriter("src/main/java/score.txt");
                 input.write(""+ score);
                 input.close();
             }
