@@ -43,6 +43,7 @@ public class MainPanel extends JPanel implements KeyListener{
         ses.scheduleAtFixedRate(()-> {
             if (lama.isDead()) {
                 dc = new deadscreen(sc.getScore());
+                Highscore hs = new Highscore(sc.getScore());
                 ses.shutdown();
             }
 

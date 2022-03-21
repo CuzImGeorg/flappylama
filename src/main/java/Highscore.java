@@ -7,16 +7,16 @@ public class Highscore {
    int score;
     public Highscore(int score){
         this.score = score;
-        char[] array = new char[100];
+        int array;
         try {
             // Creates a reader using the FileReader
             FileReader output = new FileReader("src/main/java/score.txt");
 
             // Reads characters
-            output.read(array);
+            array =  output.read();
             output.close();
 
-            int i = Integer.parseInt(new String(array));
+            int i = array;
             if(score > i){
                 FileWriter input = new FileWriter("src/main/java/score.txt");
                 input.write(""+ score);

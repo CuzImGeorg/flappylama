@@ -10,12 +10,12 @@ public class deadscreen  {
     public deadscreen(int score) {
         this.score = score;
 
-        char[] array = new char[100];
+
         try {
-            FileReader output = new FileReader("score.txt");
-            output.read(array);
+            FileReader output = new FileReader("src/main/java/score.txt");
+            int i = output.read()-48;
             output.close();
-            highscore = Integer.parseInt(new String(array));
+            highscore = i;
         } catch (Exception e) {
             e.getStackTrace();
         }
