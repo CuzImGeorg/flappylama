@@ -4,7 +4,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class score {
-    private int score = 1;
+    private int score = 0;
 
 //if dead add stop no count
     public void scoreCount() {
