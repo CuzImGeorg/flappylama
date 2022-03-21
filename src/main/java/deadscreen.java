@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.io.FileReader;
+import java.util.Scanner;
 
 public class deadscreen  {
 
@@ -9,12 +11,12 @@ public class deadscreen  {
 
     public deadscreen(int score) {
         this.score = score;
-
+        char[] chars = new char[100];
 
         try {
-            FileReader output = new FileReader("src/main/java/score.txt");
-            int i = output.read()-48;
-            output.close();
+            File output = new File("src/main/java/score.txt");
+            Scanner s = new Scanner(output);
+            int i = s.nextInt();
             highscore = i;
         } catch (Exception e) {
             e.getStackTrace();
