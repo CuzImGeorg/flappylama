@@ -20,6 +20,7 @@ public class MainPanel extends JPanel implements KeyListener{
     private score sc;
     private deadscreen dc;
     private Logo logo;
+    private winRoehre wr;
     public MainPanel() {
         setSize(400,600);
         setLayout(null);
@@ -62,9 +63,16 @@ public class MainPanel extends JPanel implements KeyListener{
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
             if(lama.isDead()) ses.shutdown();
-            drawingRoere.add(new Roere());
-            drawingRoere.forEach(run ? aMovingObject::start : null);
-            drawingRoere.removeIf(r -> r.getX() < 10);
+            if(sc.getScore() <= 2) {
+                drawingRoere.add(new Roere());
+                drawingRoere.forEach(run ? aMovingObject::start : null);
+                drawingRoere.removeIf(r -> r.getX() < 10);
+            }
+            else {
+                wr = new winRoehre();
+                wr.start();
+                ses.shutdown();
+            }
         },3,3,TimeUnit.SECONDS);
         detectCollision();
     }
@@ -115,6 +123,9 @@ public class MainPanel extends JPanel implements KeyListener{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try{
+            wr.draw(g);
+        } catch (Exception ignored) {}
         lama.draw(g);
         logo.draw(g);
         try{

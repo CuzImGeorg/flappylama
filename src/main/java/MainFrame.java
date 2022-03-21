@@ -14,8 +14,9 @@ public class MainFrame extends JFrame {
     }
 
     public void restart() {
-        removeKeyListener(p);
+
         p = new MainPanel();
+
         setContentPane(p);
         addKeyListener(p);
     }
