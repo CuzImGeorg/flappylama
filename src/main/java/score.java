@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -28,5 +29,12 @@ public class score {
     public void draw(Graphics g){
         g.drawString(String.valueOf(score), 75,75);
 
+        JLabel scorejl = new JLabel("Score: "+score);
+        scorejl.setFont(new Font("Verdana",1,25));
+        scorejl.setBounds(100,100,300,80);
+        start.getMf().getP().add(scorejl);
+
     }
+
+
 }
