@@ -18,7 +18,6 @@ public class MainFrame extends JFrame {
         p = new MainPanel();
         setContentPane(p);
         addKeyListener(p);
-
     }
 
     public MainPanel getP() {

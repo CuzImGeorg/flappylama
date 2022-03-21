@@ -110,6 +110,7 @@ public class MainPanel extends JPanel implements KeyListener{
         drawingRoere.forEach((c) -> c.draw(g));
         lama.draw(g);
         logo.draw(g);
+
         g.setColor(new Color(245,222,179));
         g.fillRect(0,570,400,50);
         g.setColor(Color.black);
