@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -109,6 +110,11 @@ public class MainPanel extends JPanel implements KeyListener{
         }
         drawingBalken.forEach((b) -> b.draw(g));
         drawingRoere.forEach((c) -> c.draw(g));
+        try {
+            g.drawImage(ImageIO.read(new File("src/main/java/wolke.png")), 0 , 0 ,400,20, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         lama.draw(g);
         logo.draw(g);
         try{
