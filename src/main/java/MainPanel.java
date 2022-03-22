@@ -72,6 +72,10 @@ public class MainPanel extends JPanel implements KeyListener{
                 wr = new winRoehre();
                 wr.start();
                 ses.shutdown();
+                ScheduledExecutorService ses2 = Executors.newScheduledThreadPool(1);
+                ses2.schedule(()->{
+                    lama.setDead(true);
+                },2000,TimeUnit.MILLISECONDS);
             }
         },3,3,TimeUnit.SECONDS);
         detectCollision();
@@ -85,12 +89,8 @@ public class MainPanel extends JPanel implements KeyListener{
                 if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
                     if(lama.getAy() < r.getY()+350 || lama.getAy() > r.getY() +450){
                         lama.setDead(true);
-                        
                         ses.shutdown();
                     }
-
-
-
                 }
             }
         },1,1, TimeUnit.MILLISECONDS);
