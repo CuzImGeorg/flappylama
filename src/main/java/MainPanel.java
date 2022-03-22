@@ -39,6 +39,7 @@ public class MainPanel extends JPanel implements KeyListener{
         update();
 
     }
+
     
     public void onDeath(){
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
@@ -75,6 +76,7 @@ public class MainPanel extends JPanel implements KeyListener{
                 ScheduledExecutorService ses2 = Executors.newScheduledThreadPool(1);
                 ses2.schedule(()->{
                     lama.setDead(true);
+                    wr.stop();
                 },2000,TimeUnit.MILLISECONDS);
             }
         },3,3,TimeUnit.SECONDS);
@@ -128,11 +130,7 @@ public class MainPanel extends JPanel implements KeyListener{
         }
         drawingBalken.forEach((b) -> b.draw(g));
         drawingRoere.forEach((c) -> c.draw(g));
-        try {
-            g.drawImage(ImageIO.read(new File("src/main/java/wolke.png")), 0 , 0 ,400,20, null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         try{
             wr.draw(g);
         } catch (Exception ignored) {}

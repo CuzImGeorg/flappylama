@@ -28,7 +28,7 @@ public class animal {
         ses.scheduleAtFixedRate(()-> {
             ay = ay +3;
             if(dead) ses.shutdown();
-            if(ay >= 550 || ay < -5){
+            if(ay >= 500 || ay < -5){
                 dead = true;
                 ses.shutdown();
             }

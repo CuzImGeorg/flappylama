@@ -14,11 +14,17 @@ public class MainFrame extends JFrame {
     }
 
     public void restart() {
-
-        p = new MainPanel();
+        removeKeyListener(p);
+        remove(p);
+       p =  new MainPanel();
 
         setContentPane(p);
         addKeyListener(p);
+        setVisible(false);
+        setVisible(true);
+
+
+
     }
 
     public MainPanel getP() {
