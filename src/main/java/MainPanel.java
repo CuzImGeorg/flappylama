@@ -86,12 +86,21 @@ public class MainPanel extends JPanel implements KeyListener{
         ses.scheduleAtFixedRate(()-> {
 
             for(Roere r : drawingRoere) {
-                if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
+              /*  if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
                     if(lama.getAy() < r.getY()+350 || lama.getAy() > r.getY() +450){
                         lama.setDead(true);
                         ses.shutdown();
                     }
+                } */
+
+                if(r.getX() <= lama.getAx() + lama.getAwidth()-25 && r.getX() + r.getWidth() >= lama.getAx()){
+                    if(lama.getAy() <= r.getY()+350 || lama.getAy()>r.getY()+450){
+                        lama.setDead(true);
+                    }
+
                 }
+
+
             }
         },1,1, TimeUnit.MILLISECONDS);
     }
