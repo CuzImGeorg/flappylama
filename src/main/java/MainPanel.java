@@ -38,6 +38,7 @@ public class MainPanel extends JPanel implements KeyListener{
         onDeath();
         update();
 
+
     }
 
     
@@ -64,7 +65,7 @@ public class MainPanel extends JPanel implements KeyListener{
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
             if(lama.isDead()) ses.shutdown();
-            if(sc.getScore() <= 2) {
+            if(sc.getScore() <= 98) {
                 drawingRoere.add(new Roere());
                 drawingRoere.forEach(run ? aMovingObject::start : null);
                 drawingRoere.removeIf(r -> r.getX() < 10);
@@ -172,5 +173,65 @@ public class MainPanel extends JPanel implements KeyListener{
 
     public score getScore() {
         return sc;
+    }
+
+    public boolean isRun() {
+        return run;
+    }
+
+    public void setRun(boolean run) {
+        this.run = run;
+    }
+
+    public void setLama(animal lama) {
+        this.lama = lama;
+    }
+
+    public ArrayList<Balken> getDrawingBalken() {
+        return drawingBalken;
+    }
+
+    public void setDrawingBalken(ArrayList<Balken> drawingBalken) {
+        this.drawingBalken = drawingBalken;
+    }
+
+    public ArrayList<Roere> getDrawingRoere() {
+        return drawingRoere;
+    }
+
+    public void setDrawingRoere(ArrayList<Roere> drawingRoere) {
+        this.drawingRoere = drawingRoere;
+    }
+
+    public score getSc() {
+        return sc;
+    }
+
+    public void setSc(score sc) {
+        this.sc = sc;
+    }
+
+    public deadscreen getDc() {
+        return dc;
+    }
+
+    public void setDc(deadscreen dc) {
+        this.dc = dc;
+    }
+
+    public Logo getLogo() {
+        return logo;
+    }
+
+    public void setLogo(Logo logo) {
+        this.logo = logo;
+    }
+
+    public winRoehre getWr() {
+        return wr;
+    }
+
+    public void setWr(winRoehre wr) {
+        this.wr = wr;
     }
 }

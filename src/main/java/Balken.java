@@ -27,6 +27,6 @@ public class Balken extends aMovingObject{
 
     @Override
     public void draw(Graphics g) {
-        g.drawImage(img, getX(), getY(),null);
+        g.drawImage(start.getMf().getRl().getBalken(), getX(), getY(),null);
     }
 }
