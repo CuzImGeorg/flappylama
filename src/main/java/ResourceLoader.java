@@ -80,7 +80,7 @@ public  class ResourceLoader {
             BufferedImage  tmp = null;
             try {
                 balken= ImageIO.read(new File("src/main/java/balken.png"));
-                rohredown= ImageIO.read(new File("src/main/java/img/dog/tree.png"));
+                rohredown= ImageIO.read(new File("src/main/java/img/1945/flammedown.png"));
                 winrohr= ImageIO.read(new File("src/main/java/winrohr.png"));
                 rohrup=ImageIO.read(new File("src/main/java/img/1945/flamme.png")); ;
                 hg= ImageIO.read(new File("src/main/java/img/1945/ort.png"));
