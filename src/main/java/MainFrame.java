@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
     MainPanel p;
-    ResourceLoader rl;
+
     public MainFrame() {
          p = new MainPanel();
         setSize(400,650);
@@ -30,9 +30,7 @@ public class MainFrame extends JFrame {
 
     }
 
-    public ResourceLoader getRl() {
-        return rl;
-    }
+
 
     public MainPanel getP() {
         return p;
