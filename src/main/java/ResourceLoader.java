@@ -49,8 +49,28 @@ public  class ResourceLoader {
             }
 
         });
+
         normal.setBackground(Color.gray);
-        animal.add(normal);
+        JMenuItem dog = new JMenuItem("dog");
+        dog.setForeground(Color.white);
+        dog.addActionListener((l)-> {
+            BufferedImage  tmp = null;
+            try {
+                balken= ImageIO.read(new File("src/main/java/balken.png"));
+                rohredown= ImageIO.read(new File("src/main/java/rohrdown.png"));
+                winrohr= ImageIO.read(new File("src/main/java/winrohr.png"));
+                rohrup= ImageIO.read(new File("src/main/java/rohrup.png"));
+                hg= ImageIO.read(new File("src/main/java/hg.png"));
+                animalbild= ImageIO.read(new File("src/main/java/img/dog/doggo.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        dog.setBackground(Color.gray);
+
+        animal.add(dog);
 
 
 

@@ -56,12 +56,33 @@ public class MainPanel extends JPanel implements KeyListener{
 
     }
 
+    public void renderTimer(Graphics g) {
+        g.drawString(min+":"+sec, 350,20);
+    }
+
+    private int sec = 0, min = 0;
+    public void timer() {
+        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
+        ses.scheduleAtFixedRate(() -> {
+            if(sec == 59) {
+                sec = 0;
+                min++;
+            }else {
+                sec++;
+            }
+
+        },1,1,TimeUnit.SECONDS );
+
+
+    }
+
     public void start() {
         drawingBalken.forEach(aMovingObject::start);
         sc = new score();
         sc.scoreCount();
         lama.start();
         logo.start();
+        timer();
 
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
@@ -141,7 +162,7 @@ public class MainPanel extends JPanel implements KeyListener{
         try{
             sc.draw(g);
         } catch (Exception s) {};
-
+        renderTimer(g);
 
         g.setColor(new Color(245,222,179));
         g.fillRect(0,570,400,50);
