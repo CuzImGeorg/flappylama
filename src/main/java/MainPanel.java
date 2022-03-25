@@ -36,6 +36,7 @@ public class MainPanel extends JPanel implements KeyListener{
 
         addKeyListener(this);
         onDeath();
+        start.getRl().addtoPanel(this);
         update();
 
 

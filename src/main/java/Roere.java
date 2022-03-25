@@ -35,8 +35,8 @@ public class Roere extends aMovingObject {
     @Override
     public void draw(Graphics g) {
         //g.drawImage(img, posX, posY, null);
-        g.drawImage(start.getMf().getRl().getRohredown(), getX(), getY(), getWidth(), getHeight(), null);
-        g.drawImage(start.getMf().getRl().getRohredown(), getX(), getY()+getHeight()+100, getWidth(), getHeight(), null);
+        g.drawImage(start.getRl().getRohredown(), getX(), getY(), getWidth(), getHeight(), null);
+        g.drawImage(start.getRl().getRohredown(), getX(), getY()+getHeight()+100, getWidth(), getHeight(), null);
 
     }
 
