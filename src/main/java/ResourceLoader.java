@@ -51,29 +51,24 @@ public  class ResourceLoader {
         });
 
         normal.setBackground(Color.gray);
-        JMenuItem dog = new JMenuItem("dog");
+        JMenuItem dog = new JMenuItem("Minecraft");
         dog.setForeground(Color.white);
         dog.addActionListener((l)-> {
             BufferedImage  tmp = null;
             try {
                 balken= ImageIO.read(new File("src/main/java/balken.png"));
-                rohredown= ImageIO.read(new File("src/main/java/rohrdown.png"));
+                rohredown= ImageIO.read(new File("src/main/java/img/dog/tree.png"));
                 winrohr= ImageIO.read(new File("src/main/java/winrohr.png"));
-                rohrup= ImageIO.read(new File("src/main/java/rohrup.png"));
-                hg= ImageIO.read(new File("src/main/java/hg.png"));
-                animalbild= ImageIO.read(new File("src/main/java/img/dog/doggo.png"));
+                rohrup= rohredown;
+                hg= ImageIO.read(new File("src/main/java/img/dog/mcbackground.png"));
+                animalbild= ImageIO.read(new File("src/main/java/img/dog/mcwolf.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
         });
-
         dog.setBackground(Color.gray);
-
         animal.add(dog);
-
-
-
         bar.add(animal);
         p.add(bar);
         p.updateUI();

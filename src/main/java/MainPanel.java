@@ -141,11 +141,7 @@ public class MainPanel extends JPanel implements KeyListener{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        try {
-            g.drawImage(ImageIO.read(new File("src/main/java/hg.png")), 0,0 ,400,570,null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        g.drawImage(start.getRl().getHg(), 0,0 ,400,570,null);
         if(lama.isDead()) {
             drawingRoere.forEach(aMovingObject::stop);
             drawingBalken.forEach(aMovingObject::stop);
