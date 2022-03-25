@@ -61,7 +61,7 @@ public  class ResourceLoader {
             try {
                 balken= ImageIO.read(new File("src/main/java/balken.png"));
                 rohredown= ImageIO.read(new File("src/main/java/img/dog/tree.png"));
-                winrohr= ImageIO.read(new File("src/main/java/winrohr.png"));
+                winrohr= ImageIO.read(new File("src/main/java/img/dog/mcsheepdownload.png"));
                 rohrup= rohredown;
                 hg= ImageIO.read(new File("src/main/java/img/dog/mcbackground.png"));
                 animalbild= ImageIO.read(new File("src/main/java/img/dog/mcwolf.png"));
