@@ -11,13 +11,7 @@ public class winRoehre extends aMovingObject{
         super(400,300,150,300);
 
 
-        try {
-            img = ImageIO.read(new File("src/main/java/winrohr.png"));
-        } catch (IOException ex) {
-
-        }
-
-
+        img = start.getRl().getWinrohr();
 
 
     }

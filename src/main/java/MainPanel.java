@@ -64,6 +64,7 @@ public class MainPanel extends JPanel implements KeyListener{
     public void timer() {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(() -> {
+            if(lama.isDead()) ses.shutdown();
             if(sec == 59) {
                 sec = 0;
                 min++;
