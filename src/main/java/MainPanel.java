@@ -119,7 +119,7 @@ public class MainPanel extends JPanel implements KeyListener{
                     }
                 } */
 
-                if(r.getX() <= lama.getAx() + lama.getAwidth()-25 && r.getX() + r.getWidth() >= lama.getAx()){
+                if(r.getX() <= lama.getAx() + lama.getAwidth()-25 && r.getX() + r.getWidth() >= lama.getAx()+50){
                     if(lama.getAy() <= r.getY()+350 || lama.getAy()>r.getY()+450){
                         lama.setDead(true);
                         ses.shutdown();
