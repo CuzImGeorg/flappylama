@@ -49,7 +49,7 @@ public class animal {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
                 if (!dead && i > 0) {
-                    ay = ay - 10;
+                    ay = ay - 11;
                     i--;
                 }else {
                     ses.shutdown();
