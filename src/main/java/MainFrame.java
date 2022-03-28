@@ -2,6 +2,7 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
     MainPanel p;
+
     public MainFrame() {
          p = new MainPanel();
         setSize(400,650);
@@ -11,12 +12,14 @@ public class MainFrame extends JFrame {
         addKeyListener(p);
 
         setVisible(true);
+
     }
 
     public void restart() {
         removeKeyListener(p);
         remove(p);
        p =  new MainPanel();
+
 
         setContentPane(p);
         addKeyListener(p);
@@ -26,6 +29,8 @@ public class MainFrame extends JFrame {
 
 
     }
+
+
 
     public MainPanel getP() {
         return p;

@@ -36,7 +36,9 @@ public class MainPanel extends JPanel implements KeyListener{
 
         addKeyListener(this);
         onDeath();
+        start.getRl().addtoPanel(this);
         update();
+
 
     }
 
@@ -54,17 +56,39 @@ public class MainPanel extends JPanel implements KeyListener{
 
     }
 
+    public void renderTimer(Graphics g) {
+        g.drawString(min+":"+sec, 350,20);
+    }
+
+    private int sec = 0, min = 0;
+    public void timer() {
+        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
+        ses.scheduleAtFixedRate(() -> {
+            if(lama.isDead()) ses.shutdown();
+            if(sec == 59) {
+                sec = 0;
+                min++;
+            }else {
+                sec++;
+            }
+
+        },1,1,TimeUnit.SECONDS );
+
+
+    }
+
     public void start() {
         drawingBalken.forEach(aMovingObject::start);
         sc = new score();
         sc.scoreCount();
         lama.start();
         logo.start();
+        timer();
 
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
             if(lama.isDead()) ses.shutdown();
-            if(sc.getScore() <= 2) {
+            if(sc.getScore() <= 98) {
                 drawingRoere.add(new Roere());
                 drawingRoere.forEach(run ? aMovingObject::start : null);
                 drawingRoere.removeIf(r -> r.getX() < 10);
@@ -118,11 +142,7 @@ public class MainPanel extends JPanel implements KeyListener{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        try {
-            g.drawImage(ImageIO.read(new File("src/main/java/hg.png")), 0,0 ,400,570,null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        g.drawImage(start.getRl().getHg(), 0,0 ,400,570,null);
         if(lama.isDead()) {
             drawingRoere.forEach(aMovingObject::stop);
             drawingBalken.forEach(aMovingObject::stop);
@@ -139,7 +159,7 @@ public class MainPanel extends JPanel implements KeyListener{
         try{
             sc.draw(g);
         } catch (Exception s) {};
-
+        renderTimer(g);
 
         g.setColor(new Color(245,222,179));
         g.fillRect(0,570,400,50);
@@ -172,5 +192,65 @@ public class MainPanel extends JPanel implements KeyListener{
 
     public score getScore() {
         return sc;
+    }
+
+    public boolean isRun() {
+        return run;
+    }
+
+    public void setRun(boolean run) {
+        this.run = run;
+    }
+
+    public void setLama(animal lama) {
+        this.lama = lama;
+    }
+
+    public ArrayList<Balken> getDrawingBalken() {
+        return drawingBalken;
+    }
+
+    public void setDrawingBalken(ArrayList<Balken> drawingBalken) {
+        this.drawingBalken = drawingBalken;
+    }
+
+    public ArrayList<Roere> getDrawingRoere() {
+        return drawingRoere;
+    }
+
+    public void setDrawingRoere(ArrayList<Roere> drawingRoere) {
+        this.drawingRoere = drawingRoere;
+    }
+
+    public score getSc() {
+        return sc;
+    }
+
+    public void setSc(score sc) {
+        this.sc = sc;
+    }
+
+    public deadscreen getDc() {
+        return dc;
+    }
+
+    public void setDc(deadscreen dc) {
+        this.dc = dc;
+    }
+
+    public Logo getLogo() {
+        return logo;
+    }
+
+    public void setLogo(Logo logo) {
+        this.logo = logo;
+    }
+
+    public winRoehre getWr() {
+        return wr;
+    }
+
+    public void setWr(winRoehre wr) {
+        this.wr = wr;
     }
 }

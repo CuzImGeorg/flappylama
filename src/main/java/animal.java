@@ -48,7 +48,7 @@ public class animal {
 
 
     public void draw(Graphics g) {
-        g.drawImage(img, ax, ay, awidth, aheight, null);
+        g.drawImage(start.getRl().getAnimalbild(), ax, ay, awidth, aheight, null);
     }
 
 
