@@ -39,11 +39,24 @@ public class animal {
     public void start(){
             moveAnimal();
     }
-
+    int i = 5;
     public void moveUp(){
-        if(!dead) {
+        i=5;
+  /*      if(!dead) {
             ay = ay - 53;
-        }
+        } */
+
+        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
+        ses.scheduleAtFixedRate(()-> {
+                if (!dead && i > 0) {
+                    ay = ay - 10;
+                    i--;
+                }else {
+                    ses.shutdown();
+                }
+
+        },0 , 20, TimeUnit.MILLISECONDS);
+
     }
 
 

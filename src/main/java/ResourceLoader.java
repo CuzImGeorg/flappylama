@@ -132,6 +132,26 @@ public  class ResourceLoader {
         tank.setBackground(Color.gray);
         animal.add(tank);
 
+        JMenuItem elfsetember = new JMenuItem("elfsetember");
+        elfsetember.setForeground(Color.white);
+        elfsetember.addActionListener((l)-> {
+            BufferedImage  tmp = null;
+            try {
+                balken= ImageIO.read(new File("src/main/java/balken.png"));
+                rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
+                winrohr= ImageIO.read(new File("src/main/java/img/elfsetember/ziel.png"));
+                rohrup= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
+                hg= ImageIO.read(new File("src/main/java/img/elfsetember/hg.png"));
+                animalbild= ImageIO.read(new File("src/main/java/img/elfsetember/flugzeug.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        elfsetember.setBackground(Color.gray);
+        animal.add(elfsetember);
+
 
         p.add(bar);
         p.updateUI();
