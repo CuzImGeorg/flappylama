@@ -63,7 +63,7 @@ public  class ResourceLoader {
                 rohredown= ImageIO.read(new File("src/main/java/img/sushi/bambusrohr.jpg"));
                 winrohr= ImageIO.read(new File("src/main/java/winrohr.png"));
                 rohrup= rohredown;
-                hg= ImageIO.read(new File("src/main/java/img/sushi/bambusback.jpg"));
+                hg= ImageIO.read(new File("src/main/java/img/sushi/sushihg.png"));
                 animalbild= ImageIO.read(new File("src/main/java/img/sushi/sushi.png"));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -121,7 +121,7 @@ public  class ResourceLoader {
                 rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2down.png"));
                 winrohr= ImageIO.read(new File("src/main/java/img/2022/ukraine.png"));
                 rohrup= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
-                hg= ImageIO.read(new File("src/main/java/img/2022/apocalypsehg.jpg"));
+                hg= ImageIO.read(new File("src/main/java/img/2022/apocalypsehg.jpg  "));
                 animalbild= ImageIO.read(new File("src/main/java/img/2022/tank.png"));
             } catch (IOException e) {
                 e.printStackTrace();
