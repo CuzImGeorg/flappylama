@@ -118,7 +118,7 @@ public  class ResourceLoader {
             BufferedImage  tmp = null;
             try {
                 balken= ImageIO.read(new File("src/main/java/balken.png"));
-                rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
+                rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2down.png"));
                 winrohr= ImageIO.read(new File("src/main/java/img/2022/ukraine.png"));
                 rohrup= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
                 hg= ImageIO.read(new File("src/main/java/img/2022/apocalypsehg.jpg"));
@@ -138,7 +138,7 @@ public  class ResourceLoader {
             BufferedImage  tmp = null;
             try {
                 balken= ImageIO.read(new File("src/main/java/balken.png"));
-                rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
+                rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2down.png"));
                 winrohr= ImageIO.read(new File("src/main/java/img/elfsetember/ziel.png"));
                 rohrup= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
                 hg= ImageIO.read(new File("src/main/java/img/elfsetember/hg.png"));

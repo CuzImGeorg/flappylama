@@ -57,6 +57,7 @@ public class MainPanel extends JPanel implements KeyListener{
     }
 
     public void renderTimer(Graphics g) {
+        g.setFont(new Font("Verdana",1,20));
         g.drawString(min+":"+sec, 350,20);
     }
 
@@ -159,8 +160,13 @@ public class MainPanel extends JPanel implements KeyListener{
         try{
             sc.draw(g);
         } catch (Exception s) {};
-        renderTimer(g);
 
+        try {
+            g.drawImage(ImageIO.read(new File("src/main/java/cloud.png")), 0,0, 600,40,null );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        renderTimer(g);
         g.setColor(new Color(245,222,179));
         g.fillRect(0,570,400,50);
         g.setColor(Color.black);
