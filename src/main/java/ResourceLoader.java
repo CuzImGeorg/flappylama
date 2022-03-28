@@ -93,6 +93,28 @@ public  class ResourceLoader {
         dd.setBackground(Color.gray);
         animal.add(dd);
 
+
+        JMenuItem tank = new JMenuItem("testpackplsignore");
+        tank.setForeground(Color.white);
+        tank.addActionListener((l)-> {
+            BufferedImage  tmp = null;
+            try {
+                balken= ImageIO.read(new File("src/main/java/balken.png"));
+                rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
+                winrohr= ImageIO.read(new File("src/main/java/img/2022/ukraine.png"));
+                rohrup= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
+                hg= ImageIO.read(new File("src/main/java/hg.png"));
+                animalbild= ImageIO.read(new File("src/main/java/img/2022/tank.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        tank.setBackground(Color.gray);
+        animal.add(tank);
+
+
         p.add(bar);
         p.updateUI();
     }
