@@ -121,7 +121,7 @@ public  class ResourceLoader {
                 rohredown= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
                 winrohr= ImageIO.read(new File("src/main/java/img/2022/ukraine.png"));
                 rohrup= ImageIO.read(new File("src/main/java/img/2022/haus2.png"));
-                hg= ImageIO.read(new File("src/main/java/hg.png"));
+                hg= ImageIO.read(new File("src/main/java/img/2022/apocalypsehg.jpg"));
                 animalbild= ImageIO.read(new File("src/main/java/img/2022/tank.png"));
             } catch (IOException e) {
                 e.printStackTrace();
