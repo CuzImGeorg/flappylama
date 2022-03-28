@@ -54,6 +54,25 @@ public  class ResourceLoader {
         animal.add(normal);
         bar.add(animal);
 
+        JMenuItem Sushi = new JMenuItem("Sushi");
+        Sushi.setForeground(Color.white);
+        Sushi.addActionListener((l)-> {
+            BufferedImage  tmp = null;
+            try {
+                balken= ImageIO.read(new File("src/main/java/balken.png"));
+                rohredown= ImageIO.read(new File("src/main/java/img/sushi/bambusrohr.jpg"));
+                winrohr= ImageIO.read(new File("src/main/java/winrohr.png"));
+                rohrup= rohredown;
+                hg= ImageIO.read(new File("src/main/java/img/sushi/bambusback.jpg"));
+                animalbild= ImageIO.read(new File("src/main/java/img/sushi/sushi.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+        Sushi.setBackground(Color.gray);
+        animal.add(Sushi);
+
         JMenuItem dog = new JMenuItem("Minecraft");
         dog.setForeground(Color.white);
         dog.addActionListener((l)-> {
@@ -72,7 +91,6 @@ public  class ResourceLoader {
         });
         dog.setBackground(Color.gray);
         animal.add(dog);
-
 
         JMenuItem dd = new JMenuItem("testdonotuse");
         dd.setForeground(Color.white);
