@@ -58,7 +58,7 @@ public class MainPanel extends JPanel implements KeyListener{
 
     public void renderTimer(Graphics g) {
         g.setFont(new Font("Verdana",1,20));
-        g.drawString(min+":"+sec, 350,20);
+        g.drawString(min+":"+sec, 330,20);
     }
 
     private int sec = 0, min = 0;
@@ -176,6 +176,12 @@ public class MainPanel extends JPanel implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         lama.keyPressed(e);
+        try {
+
+            start.getRl().secret(e);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         if(!run) {
             run = true;
             start();
