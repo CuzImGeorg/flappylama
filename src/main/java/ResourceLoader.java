@@ -27,7 +27,6 @@ public  class ResourceLoader {
     }
 
     public void secret(KeyEvent e) throws IOException {
-        System.out.println(e.getKeyChar());
         switch (e.getKeyChar()) {
             case 'q' ->  {
                 balken= ImageIO.read(new File("src/main/java/balken.png"));
