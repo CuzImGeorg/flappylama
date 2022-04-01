@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 
@@ -8,7 +7,6 @@ public class Highscore {
    int score;
     public Highscore(int score){
         this.score = score;
-        int array;
         try {
             // Creates a reader using the FileReader
 

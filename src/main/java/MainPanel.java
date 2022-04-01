@@ -3,23 +3,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class MainPanel extends JPanel implements KeyListener{
     private boolean run = false;
-    private animal lama;
-    private ArrayList<Balken> drawingBalken;
-    private ArrayList<Roere> drawingRoere;
+    private final animal lama;
+    private final ArrayList<Balken> drawingBalken;
+    private final ArrayList<Roere> drawingRoere;
     private score sc;
     private deadscreen dc;
-    private Logo logo;
+    private final Logo logo;
     private winRoehre wr;
     public MainPanel() {
         setSize(400,600);
@@ -113,13 +111,6 @@ public class MainPanel extends JPanel implements KeyListener{
         ses.scheduleAtFixedRate(()-> {
 
             for(Roere r : drawingRoere) {
-              /*  if(lama.getAx() > r.getX() && lama.getAx() < r.getX() + r.getWidth()) {
-                    if(lama.getAy() < r.getY()+350 || lama.getAy() > r.getY() +450){
-                        lama.setDead(true);
-                        ses.shutdown();
-                    }
-                } */
-
                 if(r.getX() <= lama.getAx() + lama.getAwidth()-25 && r.getX() + r.getWidth() >= lama.getAx()+50){
                     if(lama.getAy() <= r.getY()+350 || lama.getAy()>r.getY()+450){
                         lama.setDead(true);
@@ -135,7 +126,7 @@ public class MainPanel extends JPanel implements KeyListener{
 
     public void update() {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
-        ses.scheduleAtFixedRate(()-> updateUI(), 1,5, TimeUnit.MILLISECONDS);
+        ses.scheduleAtFixedRate(this::updateUI, 1,5, TimeUnit.MILLISECONDS);
     }
 
 
@@ -159,7 +150,7 @@ public class MainPanel extends JPanel implements KeyListener{
         logo.draw(g);
         try{
             sc.draw(g);
-        } catch (Exception s) {};
+        } catch (Exception ignored) {}
 
         try {
             g.drawImage(ImageIO.read(new File("src/main/java/cloud.png")), 0,0, 600,40,null );
@@ -176,12 +167,7 @@ public class MainPanel extends JPanel implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         lama.keyPressed(e);
-        try {
 
-            start.getRl().secret(e);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
         if(!run) {
             run = true;
             start();
@@ -202,67 +188,5 @@ public class MainPanel extends JPanel implements KeyListener{
         return lama;
     }
 
-    public score getScore() {
-        return sc;
-    }
 
-    public boolean isRun() {
-        return run;
-    }
-
-    public void setRun(boolean run) {
-        this.run = run;
-    }
-
-    public void setLama(animal lama) {
-        this.lama = lama;
-    }
-
-    public ArrayList<Balken> getDrawingBalken() {
-        return drawingBalken;
-    }
-
-    public void setDrawingBalken(ArrayList<Balken> drawingBalken) {
-        this.drawingBalken = drawingBalken;
-    }
-
-    public ArrayList<Roere> getDrawingRoere() {
-        return drawingRoere;
-    }
-
-    public void setDrawingRoere(ArrayList<Roere> drawingRoere) {
-        this.drawingRoere = drawingRoere;
-    }
-
-    public score getSc() {
-        return sc;
-    }
-
-    public void setSc(score sc) {
-        this.sc = sc;
-    }
-
-    public deadscreen getDc() {
-        return dc;
-    }
-
-    public void setDc(deadscreen dc) {
-        this.dc = dc;
-    }
-
-    public Logo getLogo() {
-        return logo;
-    }
-
-    public void setLogo(Logo logo) {
-        this.logo = logo;
-    }
-
-    public winRoehre getWr() {
-        return wr;
-    }
-
-    public void setWr(winRoehre wr) {
-        this.wr = wr;
-    }
 }

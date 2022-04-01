@@ -6,7 +6,7 @@ public class MainFrame extends JFrame {
     public MainFrame() {
          p = new MainPanel();
         setSize(400,650);
-        setDefaultCloseOperation(3);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(null);
         setContentPane(p);
         addKeyListener(p);
