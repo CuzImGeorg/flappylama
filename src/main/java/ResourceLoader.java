@@ -24,18 +24,18 @@ public  class ResourceLoader {
         }
 
     }
-
+    JMenuBar bar;
 
     public void addtoPanel(JPanel p){
-        JMenuBar bar = new JMenuBar();
-        bar.setBounds(1,1,25,20);
+        bar = new JMenuBar();
+        bar.setBounds(1,1,90,20);
         bar.setBackground(Color.darkGray);
 
         JMenu animal = new JMenu("Tp");
         animal.setBounds(0,0,100,20);
         animal.setBackground(Color.darkGray);
         animal.setForeground(Color.white);
-        JMenuItem normal = new JMenuItem("default");
+        JMenuItem normal = new JMenuItem("Flappy Lama");
         normal.setForeground(Color.white);
         normal.addActionListener((l)-> {
             BufferedImage  tmp = null;

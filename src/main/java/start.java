@@ -7,6 +7,16 @@ public class start  {
 
     }
 
+    private static int winpoints;
+
+    public static int getWinpoints() {
+        return winpoints;
+    }
+
+    public static void setWinpoints(int winpoints) {
+        start.winpoints = winpoints;
+    }
+
     public static MainFrame getMf() {
         return mf;
     }

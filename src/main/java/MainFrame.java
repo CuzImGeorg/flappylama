@@ -8,6 +8,7 @@ public class MainFrame extends JFrame {
         setSize(400,650);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(null);
+        setTitle("FlappyLama");
         setContentPane(p);
         addKeyListener(p);
 

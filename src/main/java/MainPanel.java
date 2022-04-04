@@ -36,8 +36,7 @@ public class MainPanel extends JPanel implements KeyListener{
         onDeath();
         start.getRl().addtoPanel(this);
         update();
-
-
+        endless();
     }
 
     
@@ -87,7 +86,7 @@ public class MainPanel extends JPanel implements KeyListener{
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(()-> {
             if(lama.isDead()) ses.shutdown();
-            if(sc.getScore() <= 98) {
+            if(sc.getScore() <= start.getWinpoints()-2) {
                 drawingRoere.add(new Roere());
                 drawingRoere.forEach(run ? aMovingObject::start : null);
                 drawingRoere.removeIf(r -> r.getX() < 10);
@@ -129,6 +128,34 @@ public class MainPanel extends JPanel implements KeyListener{
         ses.scheduleAtFixedRate(this::updateUI, 1,5, TimeUnit.MILLISECONDS);
     }
 
+    public void endless() {
+        JMenu endless = new JMenu("Endless");
+        JMenuItem selectendless = new JMenuItem("Endless");
+        endless.setBackground(Color.darkGray);
+        endless.setForeground(Color.white);
+        endless.setBounds(101, 0,100,20);
+        selectendless.setBackground(Color.darkGray);
+        selectendless.setForeground(Color.white);
+        selectendless.addActionListener((l)-> {
+            start.setWinpoints(999999);
+            endless.setText("Endless");
+        });
+
+
+        JMenuItem winon100 = new JMenuItem("Normal");
+        winon100.setBackground(Color.darkGray);
+        winon100.setForeground(Color.white);
+        winon100.addActionListener((l)-> {
+            start.setWinpoints(100);
+            endless.setText("Normal");
+        });
+
+
+        endless.add(winon100);
+        endless.add(selectendless);
+        start.getRl().bar.add(endless);
+    }
+
 
 
     @Override
@@ -167,7 +194,6 @@ public class MainPanel extends JPanel implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         lama.keyPressed(e);
-
         if(!run) {
             run = true;
             start();
