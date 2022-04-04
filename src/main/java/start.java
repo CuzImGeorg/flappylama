@@ -7,6 +7,16 @@ public class start  {
 
     }
 
+    private static int mode = 0;
+
+    public static int getMode() {
+        return mode;
+    }
+
+    public static void setMode(int mode) {
+        start.mode = mode;
+    }
+
     private static int winpoints = 9999999;
 
     public static int getWinpoints() {

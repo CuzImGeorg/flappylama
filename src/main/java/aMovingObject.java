@@ -34,7 +34,7 @@ public abstract class aMovingObject {
             if(run) {
                 x--;
             }
-        },0 , 10, TimeUnit.MILLISECONDS);
+        },0 , start.getMode() == 0 ?  10 : 7, TimeUnit.MILLISECONDS);
     }
 
     public abstract void draw(Graphics g);

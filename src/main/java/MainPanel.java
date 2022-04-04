@@ -37,6 +37,7 @@ public class MainPanel extends JPanel implements KeyListener{
         start.getRl().addtoPanel(this);
         update();
         endless();
+        mode();
     }
 
     
@@ -101,7 +102,7 @@ public class MainPanel extends JPanel implements KeyListener{
                     wr.stop();
                 },2000,TimeUnit.MILLISECONDS);
             }
-        },3,3,TimeUnit.SECONDS);
+        },3,start.getMode() == 0 ?  3000 : 2000,TimeUnit.MILLISECONDS);
         detectCollision();
     }
 
@@ -126,6 +127,33 @@ public class MainPanel extends JPanel implements KeyListener{
     public void update() {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.scheduleAtFixedRate(this::updateUI, 1,5, TimeUnit.MILLISECONDS);
+    }
+
+    public void mode(){
+        JMenu endless = new JMenu(start.getMode() == 0 ? "Easy" : "Hard");
+        JMenuItem selectendless = new JMenuItem("Easy");
+        endless.setBackground(Color.darkGray);
+        endless.setForeground(Color.white);
+        endless.setBounds(101, 0,100,20);
+        selectendless.setBackground(Color.darkGray);
+        selectendless.setForeground(Color.white);
+        selectendless.addActionListener((l)-> {
+            start.setMode(0);
+            endless.setText("Easy");
+        });
+
+
+        JMenuItem winon100 = new JMenuItem("Hard");
+        winon100.setBackground(Color.darkGray);
+        winon100.setForeground(Color.white);
+        winon100.addActionListener((l)-> {
+            start.setMode(1);
+            endless.setText("Hard");
+        });
+
+        endless.add(selectendless);
+        endless.add(winon100);
+        start.getRl().bar.add(endless);
     }
 
     public void endless() {

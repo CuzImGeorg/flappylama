@@ -28,7 +28,7 @@ public  class ResourceLoader {
 
     public void addtoPanel(JPanel p){
         bar = new JMenuBar();
-        bar.setBounds(1,1,90,20);
+        bar.setBounds(1,1,150,20);
         bar.setBackground(Color.darkGray);
 
         JMenu animal = new JMenu("Tp");

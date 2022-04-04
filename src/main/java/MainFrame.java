@@ -11,7 +11,7 @@ public class MainFrame extends JFrame {
         setTitle("FlappyLama");
         setContentPane(p);
         addKeyListener(p);
-
+        setResizable(false);
         setVisible(true);
 
     }

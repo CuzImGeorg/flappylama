@@ -20,7 +20,7 @@ public class score {
                 if (start.getMf().getP().getLama().isDead()) {
                     ses.shutdown();
                 } else score++;
-            }, 5000, 3000, TimeUnit.MILLISECONDS);
+            }, 1500, start.getMode() == 0 ?  3000 : 2000, TimeUnit.MILLISECONDS);
 
     }
 
