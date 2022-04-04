@@ -7,7 +7,7 @@ public class start  {
 
     }
 
-    private static int winpoints;
+    private static int winpoints = 9999999;
 
     public static int getWinpoints() {
         return winpoints;
